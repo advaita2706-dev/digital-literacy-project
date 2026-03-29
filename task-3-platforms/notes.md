@@ -18,7 +18,7 @@ _(Screenshot of completed challenge saved as `hackerrank_screenshot.png` in this
 
 I created a **Digital Literacy Awareness Quiz** using Google Forms with exactly 5 questions (see below). The form is linked to a Google Sheet that automatically captures all responses in real time.
 
-**Form Link:** _(Paste your published Google Form URL here after creating it — see the 5 questions below to set it up)_
+**Form Link:** [https://docs.google.com/forms/d/e/1FAIpQLSdWzwR4U3XMOBHGIEUY-lEW8HeLLuNj3eCXLDhAlm2NgG65Mg/viewform?usp=publish-editor](https://docs.google.com/forms/d/e/1FAIpQLSdWzwR4U3XMOBHGIEUY-lEW8HeLLuNj3eCXLDhAlm2NgG65Mg/viewform?usp=publish-editor)
 
 ### Quiz Questions to Set Up in Google Forms:
 
