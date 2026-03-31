@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Literacy Awareness</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .poster {
+            width: 1200px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            padding: 50px;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+        }
+        
+        .intro h2 {
+            color: #764ba2;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .intro p {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .section-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section-card h3 {
+            color: #667eea;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .icon {
+            font-size: 2rem;
+            display: inline-block;
+        }
+        
+        .section-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .section-card li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .section-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .tools-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .tools-section h3 {
+            color: white;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .tool-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .tool-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .tool-card h4 {
+            color: #764ba2;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .tool-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .footer h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .footer p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .highlight {
+            color: #ffd700;
+            font-weight: bold;
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+            .poster {
+                box-shadow: none;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="header">
+            <h1>🎓 DIGITAL LITERACY</h1>
+            <p>Your Gateway to Success in the Digital Age</p>
+        </div>
+        
+        <div class="content">
+            <div class="intro">
+                <h2>What is Digital Literacy?</h2>
+                <p>Digital Literacy is the ability to use digital technology, communication tools, and networks effectively and responsibly. It encompasses finding, evaluating, creating, and communicating information using digital platforms - an essential skill for academic excellence, career success, and safe online navigation.</p>
+            </div>
+            
+            <div class="sections-grid">
+                <div class="section-card">
+                    <h3><span class="icon">🌐</span> Safe Internet Practices</h3>
+                    <ul>
+                        <li>Use strong, unique passwords for each account</li>
+                        <li>Enable two-factor authentication (2FA)</li>
+                        <li>Verify URLs before clicking links</li>
+                        <li>Avoid public Wi-Fi for sensitive transactions</li>
+                        <li>Keep software and browsers updated</li>
+                        <li>Be cautious with personal information sharing</li>
+                    </ul>
+                </div>
+                
+                <div class="section-card">
+                    <h3><span class="icon">💼</span> Professional Online Presence</h3>
+                    <ul>
+                        <li>Create a complete LinkedIn profile with clear photo</li>
+                        <li>Build a GitHub portfolio showcasing projects</li>
+                        <li>Use professional email addresses</li>
+                        <li>Maintain consistent branding across platforms</li>
+                        <li>Share relevant achievements and certifications</li>
+                        <li>Network with peers and industry professionals</li>
+                    </ul>
+                </div>
+                
+                <div class="section-card">
+                    <h3><span class="icon">📧</span> Email Etiquette</h3>
+                    <ul>
+                        <li>Use clear, descriptive subject lines</li>
+                        <li>Start with appropriate greetings (Dear/Hello)</li>
+                        <li>Keep messages concise and professional</li>
+                        <li>Proofread before sending</li>
+                        <li>Use proper sign-offs with full name</li>
+                        <li>Reply within 24-48 hours</li>
+                        <li>Avoid informal language and emojis</li>
+                    </ul>
+                </div>
+                
+                <div class="section-card">
+                    <h3><span class="icon">🛡️</span> Cybersecurity Awareness</h3>
+                    <ul>
+                        <li>Recognize phishing emails and fake websites</li>
+                        <li>Never share OTPs or passwords with anyone</li>
+                        <li>Verify UPI requests before payment</li>
+                        <li>Report suspicious activity (Helpline: 1930)</li>
+                        <li>Backup important data regularly</li>
+                        <li>Think before you click or share</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tools-section">
+                <h3>🚀 Essential Digital Tools for Students</h3>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">💻</div>
+                        <h4>GitHub</h4>
+                        <p>Code hosting & version control</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">📊</div>
+                        <h4>Google Workspace</h4>
+                        <p>Docs, Sheets, Slides collaboration</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">🎨</div>
+                        <h4>Canva</h4>
+                        <p>Design & presentations</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">🔗</div>
+                        <h4>LinkedIn</h4>
+                        <p>Professional networking</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">💡</div>
+                        <h4>HackerRank</h4>
+                        <p>Coding practice</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">📚</div>
+                        <h4>Stack Overflow</h4>
+                        <p>Tech Q&A community</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">🔬</div>
+                        <h4>Kaggle</h4>
+                        <p>Data science & ML</p>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon">📝</div>
+                        <h4>Notion</h4>
+                        <p>Note-taking & organization</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <h3>🎯 Be Digitally Literate, Stay Safe, Succeed!</h3>
+            <p>Created for <span class="highlight">VIT Bhopal University</span> | CSE0001 Digital Literacy Project | Student Digital Ambassador Initiative</p>
+        </div>
+    </div>
+</body>
+</html>
+
